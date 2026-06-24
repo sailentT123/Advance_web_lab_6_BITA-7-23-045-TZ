@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3</title>
+</head>
+<body>
+    <h1>Question 3</h1>
+    <p>The perimeter of a circle is given by the formula 2πr, where r is the radius and Area is πr².</p>
+    <script>
+        function Circle(radius) {
+            this.radius = radius;
+    
+            this.getArea = function() {
+                return Math.PI * Math.pow(this.radius, 2);
+            };
+    
+            this.getPerimeter = function() {
+                return 2 * Math.PI * this.radius;
+            };
+        }
+
+    let circy1 = new Circle(11);
+    console.log(circy1.getArea()); 
+    document.write("Area of circle with radius 11: " + circy1.getArea() + "<br>");
+
+    let circy2 = new Circle(4.44);
+    console.log(circy2.getPerimeter());
+    document.write("Perimeter of circle with radius 4.44: " + circy2.getPerimeter() + "<br>");
+    </script>
+</body>
+</html>

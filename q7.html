@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question 7</title>
+    </head>
+    <body>
+        <h1>Population Percentage of the World</h1>
+        <p>Calculating the percentage of the world's population for different countries.</p>
+        <script>
+            const worldPop = 7900;
+
+            function percentageOfWorld1(population) {
+                return (population / worldPop) * 100;
+            }
+
+            const percentageOfWorld2 = function(population) {
+                return (population / worldPop) * 100;
+            };
+
+            const percentageOfWorld3 = population => (population / worldPop) * 100;
+            const china = 1441;
+            const india = 1428;
+            const tanzania = 65;
+
+            console.log("CHINA: ", percentageOfWorld1(china),"INDIA: ", percentageOfWorld1(india),"TANZANIA: ", percentageOfWorld1(tanzania));
+            console.log("CHINA: ", percentageOfWorld2(china),"INDIA: ", percentageOfWorld2(india),"TANZANIA: ", percentageOfWorld2(tanzania));
+            console.log("CHINA: ", percentageOfWorld3(china),"INDIA: ", percentageOfWorld3(india),"TANZANIA: ", percentageOfWorld3(tanzania));
+
+            document.write("CHINA: " + percentageOfWorld1(china) + "%, " +"INDIA: " + percentageOfWorld1(india) + "%, " +"TANZANIA: " + percentageOfWorld1(tanzania) + "%<br>");
+            document.write("CHINA: " + percentageOfWorld2(china) + "%, " +"INDIA: " + percentageOfWorld2(india) + "%, " +"TANZANIA: " + percentageOfWorld2(tanzania) + "%<br>");
+            document.write("CHINA: " + percentageOfWorld3(china) + "%, " +"INDIA: " + percentageOfWorld3(india) + "%, " +"TANZANIA: " + percentageOfWorld3(tanzania) + "%<br>");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container{
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            width: 350px;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        input, textarea{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea{
+            height: 100px;
+            resize: none;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Send Message</h1>
+        <div id="errorContainer"></div>
+        <form id="msgForm">
+            <label>Name:</label>
+            <input type="text" id="msgName" placeholder="Laurence Svekis">
+
+            <label>Email:</label>
+            <input type="email" id="msgEmail" placeholder="gappscourses+100@gmail.com">
+
+            <label>Message:</label>
+            <textarea id="msgContent" placeholder="Hello world"></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+    
+    <script>
+        function submitter() {
+            document.getElementById('msgForm').dispatchEvent(new Event('submit'));
+        }
+
+        document.getElementById('msgForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let nameInput = document.getElementById('msgName');
+            let emailInput = document.getElementById('msgEmail');
+            let messageInput = document.getElementById('msgContent');
+            let errorContainer = document.getElementById('errorContainer');
+            
+            errorContainer.innerHTML = ""; 
+            let errors = [];
+            
+            if (!nameInput.value.trim()) {
+                errors.push("Name field is required.");
+                nameInput.style.borderColor = "red";
+            }
+            if (!emailInput.value.trim().includes('@')) {
+                errors.push("Please provide a valid email.");
+                emailInput.style.borderColor = "red";
+            }
+            if (!messageInput.value.trim()) {
+                errors.push("Message field cannot be blank.");
+                messageInput.style.borderColor = "red";
+            }
+            
+            if (errors.length > 0) {
+                let errorEl = document.createElement('div');
+                errorEl.style.color = "red";
+                errorEl.innerHTML = errors.join("<br>");
+                errorContainer.appendChild(errorEl);
+                
+                setTimeout(() => {
+                    errorEl.remove();
+                    nameInput.style.borderColor = "#ccc";
+                    emailInput.style.borderColor = "#ccc";
+                    messageInput.style.borderColor = "#ccc";
+                }, 3000);
+            } else {
+                alert("Message sent successfully! " + "Name: " + nameInput.value + ", Email: " + emailInput.value + ", Message: " + messageInput.value);
+
+                let formData = {
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    message: messageInput.value.trim()
+                };
+                console.log("Data ready to send:", formData);
+            }
+})
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 4</title>
+</head>
+<body>
+    <h1>Input Section</h1>
+    <p>Enter a number in each of the boxes below and then click one of buttons below to either sort the numbers into ascending order, or descending order. The sorted numbers will be placed in the output section. </p>
+    <div style="display:flex; gap:15px;">
+        <div>
+            <label for="A"><b>A</b></label><br>
+            <input type="text" id="A" name="A">
+        </div>
+
+        <div>
+            <label for="B"><b>B</b></label><br>
+            <input type="text" id="B" name="B">
+        </div>
+
+        <div>
+            <label for="C"><b>C</b></label><br>
+            <input type="text" id="C" name="C">
+        </div>
+    </div>
+    <button onclick="sortAscending()">Sort Ascending</button>
+    <button onclick="sortDescending()">Sort Descending</button><br>
+    <h1>Output Section</h1>
+    <p>Once you click on one of the buttons, the numbers in boxes A, B, and C will be sorted accordingly. The sorted numbers will then be blace in these boxes</p><br>
+    <input type="text" id="outputA" name="outputA" readonly>
+    <input type="text" id="outputB" name="outputB" readonly> 
+    <input type="text" id="outputC" name="outputC" readonly><br>
+    <script>
+        function sortAscending() {
+            const A = parseFloat(document.getElementById('A').value);
+            const B = parseFloat(document.getElementById('B').value);
+            const C = parseFloat(document.getElementById('C').value);
+
+            if (isNaN(A) || isNaN(B) || isNaN(C)) {
+                alert('Please enter valid numbers in all boxes.');
+                return;
+            }
+
+            const sortedNumbers = [A, B, C].sort((a, b) => a - b);
+            document.getElementById('outputA').value = sortedNumbers[0];
+            document.getElementById('outputB').value = sortedNumbers[1];
+            document.getElementById('outputC').value = sortedNumbers[2];
+        }
+
+        function sortDescending() {
+            const A = parseFloat(document.getElementById('A').value);
+            const B = parseFloat(document.getElementById('B').value);
+            const C = parseFloat(document.getElementById('C').value);
+
+            if (isNaN(A) || isNaN(B) || isNaN(C)) {
+                alert('Please enter valid numbers in all boxes.');
+                return;
+            }
+
+            const sortedNumbers = [A, B, C].sort((a, b) => b - a);
+            document.getElementById('outputA').value = sortedNumbers[0];
+            document.getElementById('outputB').value = sortedNumbers[1];
+            document.getElementById('outputC').value = sortedNumbers[2];
+        }
+    </script>
+</body>
+</html>

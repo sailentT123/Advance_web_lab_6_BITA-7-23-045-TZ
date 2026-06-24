@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question 8</title>
+    </head>
+    <body>
+        <h1>Population Percentage of the World</h1>
+        <p>Calculating the percentage of the world's population for different countries using an array.</p>
+        <ul>
+            <li>China: 1441 million</li>
+            <li>India: 1428 million</li>
+            <li>Tanzania: 65 million</li>
+            <li>Germany: 85 million</li>
+        </ul>
+        <script>
+                const worldPop = 7900;
+
+                function percentageOfWorld1(population) {
+                    return (population / worldPop) * 100;
+                }
+
+                const populations = [1441, 1428, 65, 85]; 
+
+                console.log(populations.length === 4);
+
+                const percentages = [
+                    percentageOfWorld1(populations[0]),
+                    percentageOfWorld1(populations[1]),
+                    percentageOfWorld1(populations[2]),
+                    percentageOfWorld1(populations[3])
+                ];
+
+                // Output results
+                console.log("Populations:", populations);
+                console.log("Percentages:", percentages);
+                document.write("Populations: " + populations.join(", ") + "<br>");
+                document.write("Percentages: " + percentages.map(p => p.toFixed(2) + "%").join(", ") + "<br>");
+        </script>
+    </body>
+</html>

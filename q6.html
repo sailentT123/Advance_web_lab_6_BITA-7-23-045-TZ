@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question 6</title>
+        
+    </head>
+    <body>
+        <h1>Population of Countries and Their Capital Cities</h1>
+        <p>Below are descriptions of three countries, their populations, and their capital cities:</p>
+        <ul>
+            <li id="desc1"></li>
+            <li id="desc2"></li>
+            <li id="desc3"></li>
+        </ul>   
+        <script>
+            function describeCountry(country, population, capitalCity) {
+                return `${country} has ${population} million people and its capital city is ${capitalCity}`;
+            }
+
+            let desc1 = describeCountry('Finland', 6, 'Helsinki');
+            let desc2 = describeCountry('Tanzania', 65, 'Dodoma');
+            let desc3 = describeCountry('Japan', 125, 'Tokyo');
+
+            console.log(desc1);
+            console.log(desc2);
+            console.log(desc3);
+
+            document.getElementById('desc1').textContent = desc1;
+            document.getElementById('desc2').textContent = desc2;
+            document.getElementById('desc3').textContent = desc3;
+        </script>
+    </body>
+</html>

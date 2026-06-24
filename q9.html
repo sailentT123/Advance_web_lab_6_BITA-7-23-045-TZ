@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Question 9</title>
+    </head>
+    <body>
+        <h1>Question 9</h1>
+        <p>JavaScript program to create an object representing a country with properties for its name, capital, language, population, and neighbouring countries.   </p>
+        <script>
+            const myCountry = {
+                country: "Tanzania",
+                capital: "Dodoma",
+                language: "Swahili",
+                population: 65,
+                neighbours: ["Kenya", "Uganda", "Rwanda"],
+
+                // Method 1: describe
+                describe: function () {
+                    console.log(
+                        `${this.country} has ${this.population} million ${this.language}-speaking people, ` +
+                        `${this.neighbours.length} neighbouring countries and a capital called ${this.capital}.`
+                    );
+                },
+
+                // Method 2: checkIsland
+                checkIsland: function () {
+                    this.isIsland = this.neighbours.length === 0 ? true : false;
+                }
+            };
+
+            // 1. Log initial description
+            myCountry.describe();
+
+            // 2. Increase population by 2 million
+            myCountry.population += 2;
+
+            // 3. Decrease population by 2 million using bracket notation
+            myCountry["population"] -= 2;
+
+            // 4. Check island property
+            myCountry.checkIsland();
+
+            // 5. Final object output
+            console.log(myCountry);
+            document.write(`<p>${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ` +
+                `${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}.</p>`);
+        </script>
+    </body>
+</html>
